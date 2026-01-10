@@ -49,7 +49,7 @@ ASCII diagram so they don’t guess:
    ![setup](screenshots/mv.png)
 
 4.now navigate to /opt/splunk/bin and follow this cmd to accept the lisence
-![setup](screenshots/start_splunk.png)
+![setup]("screenshots/start_splunk.png")
 
 
 You can perform other cmd like:
