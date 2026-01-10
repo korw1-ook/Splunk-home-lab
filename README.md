@@ -142,3 +142,12 @@ NOW BACK TO LINUX HOST TERMINAL
 we will user the logger cmd for this test
 logger "this-is-test-cmd"
 ![setup](screenshots/test_save.png)
+
+
+
+
+🏁 Conclusion
+
+This lab helped me see the full path of logs — from my system, through the forwarder, into Splunk, and finally into searches.
+Now I understand how a SIEM actually collects and shows data, not just the theory.
+This is my starting point — I’ll add more log sources, alerts, and maybe a second machine next.  
