@@ -63,7 +63,7 @@ You can perform other cmd like:
 ./bin/splunk help
 
 Now open the link for splunk dashboard
-![setup](screenshots/splunk_login_page.png)
+![setup](https://github.com/korw1-ook/splunk-home-lab/blob/main/screenshots/splunk%20_login_page.png?raw=true)
 
 5. Now they will ask for username and password
    ![setup](screenshots/userpasswd.png)
@@ -90,4 +90,55 @@ There are two splunk forwarder:
    ![setup](screenshots/sf_extract.png)
    
 3. mv the splunk forwarder to /opt/ directory
-   ![setup](screenshots/sf mv.png)
+   ![setup](screenshots/sf_mv.png)
+
+4.change directory to /opt/splunkforwarder and accept teh lisence
+![setup](screenshots/sf_start.png)
+
+if they asking to change port: 8090 
+#8089 is default port on which splunk forwarder run 
+
+Now we have sucessfully installed splunk forwarder 
+
+
+#Configure teh forwarder
+
+1.Login in splunk and go to setting then forwarder and reciever tab
+![setup](screenshots/forwarding_and_recieving.png)
+2. CLick configure recieving and then neww recieving port
+
+   By default, the splunk instance revieve data from forwarder on the port 9997
+   Now listening port is enabled
+
+   ![setup](screenshots/add_port.png)
+
+
+3. go to indexes and click on new index
+   ![setup](screenshots/indexes.png)
+   fill an index name and save it
+   ![setup](screenshots/index_name.png)
+
+NOW BACK TO LINUX HOST TERMINAL
+
+4. Navigate to /opt/splunkforwarder/bin and execute the following cmd
+    ./splunk add forwarder-server 127.0.0.1:9997
+
+   adn verify it
+   ![setup](screenshots/sf_list_server_verify.png)
+
+
+5. Now we will tell splunk forwarder which log file to monitor
+   ![setup](screenshots/add_syslog.png)
+
+   WE CAN ADD OTHER LOG IN THIS SAME WAY
+
+
+6. open input.conf file located in /opt/splunk/forwarder/etc/apps/search/local
+   ![setup](screenshots/input_conf.png)
+
+
+#NOW WE WILL TEST 
+
+we will user the logger cmd for this test
+logger "this-is-test-cmd"
+![setup](screenshots/test_save.png)
