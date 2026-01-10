@@ -1,0 +1,39 @@
+#Splunk linux setup
+
+ tar xvf splunk_installer.tgz
+
+mv splunk /opt/
+cd /opt/splunk/bin
+./splunk start --aceept-lisence 
+
+  cd /opt/splunk
+  ./bin/splunk start
+./bin/splunk stop
+./bin/splunk restart
+./bin/splunk status
+./bin/splunk add oneshot
+./bin/splunk search 
+./bin/splunk help
+
+
+
+#splunk forwarder
+
+tar xvzf splunkforwarder.tgz
+mv splunkforwarder /opt/
+cd /opt/splunkforwarder
+./bin/splunk start --accep-lisence
+set up at 8090 port custom
+NOTE: 8089 default porton which splunk forwarder run
+
+
+#configure forwarder
+for link host
+cd /opt/splunkforwarder/bin
+  ./splunk add monitor /var/log/syslog -index Korw_index_logs
+
+cd /opt/splunkforwarder/etc/apps/search/local
+  cat inputs.conf
+
+#testing
+  logger "this-is-the-test-cmd-you-will-see-it-on-the-splunk"
